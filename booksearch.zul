@@ -1,0 +1,40 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window title="new page title" border="normal" viewModel="@id('vm') @init('mvvmtype2examples.booksearch')">
+<textbox value="@bind(vm.key)"></textbox>
+<button label="search by book name" onClick="@command('search')"></button>
+<button onClick="@command('Alldata')">All data</button>
+
+
+
+
+
+<listbox model="@bind(vm.booking)" emptyMessage="no book found" selectedItem="@bind(vm.selectedbook)">
+
+    <listhead>
+        <listheader label="Book ID" />
+        <listheader label="BookName" />
+        <listheader label="Author Name" />
+        <listheader label="BookPrice" />
+    </listhead>
+    <template name="model">
+       <listitem>
+        <listcell label="@load(each.bookId)" />
+        <listcell label="@load(each.bookname)" />
+        <listcell label="@load(each.author)" />
+        <listcell label="@load(each.price)" />
+    </listitem>
+    </template>
+</listbox>
+
+  <image  src="@bind(vm.selectedbook.imageUrl)" />
+  
+  <label value="@load(vm.selectedbook.price)" />
+  <separator />
+  <separator />	
+  <hlayout>
+  <label value="@load(vm.selectedbook.bookname)" />
+  </hlayout>
+
+</window>
+</zk>

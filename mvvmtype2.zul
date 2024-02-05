@@ -1,0 +1,16 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+<window viewModel="@id('vm')@init('mvvmtype2examples.Bookpojo')">
+<vbox>
+
+
+bookname:<textbox value="@bind(vm.bookname)"/>
+Author:<textbox value="@bind(vm.author)"/>
+price:<textbox value="@bind(vm.price)"/>
+Image id:<textbox value="@bind(vm.imageUrl)"/>
+<button label="Store" iconSclass="z-icon-save"
+onClick="@command('store')"/>
+</vbox>
+
+</window>
+</zk>
